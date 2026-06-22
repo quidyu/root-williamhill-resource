@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+            background-color: #fafafa;
+            color: #1e1e2a;
+            line-height: 1.7;
+        }
+        a {
+            color: #c44536;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        a:hover {
+            color: #8a2a1c;
+            border-bottom-color: #c44536;
+        }
+
+        /* ───── 深色头图 ───── */
+        .hero {
+            background: linear-gradient(145deg, #12141c 0%, #1f2330 100%);
+            color: #eaeef5;
+            padding: 4.5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -60%;
+            left: -10%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(circle at 30% 40%, rgba(196, 69, 54, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 strong {
+            font-weight: 500;
+            color: #e3b3a8;
+        }
+        .hero p {
+            max-width: 620px;
+            margin: 1rem auto 0.5rem;
+            font-size: 1.05rem;
+            color: #c5ccd9;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        /* ───── 正文容器 ───── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 4rem;
+        }
+
+        /* ───── 卡片式模块 ───── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2.8rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.6rem 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.25s, transform 0.2s;
+            border: 1px solid #eceef3;
+        }
+        .card:hover {
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #1f2330;
+            letter-spacing: -0.3px;
+        }
+        .card p {
+            color: #3d4055;
+            font-size: 0.96rem;
+        }
+        .card .icon {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            color: #c44536;
+        }
+
+        /* ───── 介绍段落 / 常见说明区域 ───── */
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 400;
+            margin: 2.5rem 0 1.2rem;
+            color: #1b1e2a;
+            border-left: 4px solid #c44536;
+            padding-left: 1rem;
+        }
+
+        .intro-text {
+            background: #ffffff;
+            padding: 2rem 2.2rem;
+            border-radius: 22px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf0f7;
+            margin: 1.8rem 0 2rem;
+            font-size: 1rem;
+        }
+        .intro-text p {
+            margin-bottom: 1.1rem;
+        }
+
+        .faq-short {
+            margin: 2.5rem 0 1rem;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e4e7ef;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #1f2330;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: baseline;
+        }
+        .faq-q::before {
+            content: "▹";
+            color: #c44536;
+            margin-right: 0.6rem;
+            font-weight: 400;
+        }
+        .faq-a {
+            color: #484c63;
+            font-size: 0.94rem;
+            margin-left: 1.6rem;
+        }
+
+        /* ───── 按钮风格（点缀） ───── */
+        .more-link {
+            display: inline-block;
+            margin-top: 0.4rem;
+            font-size: 0.92rem;
+            border: 1px solid #c44536;
+            border-radius: 30px;
+            padding: 0.3rem 1.2rem;
+            color: #c44536;
+            background: transparent;
+            transition: all 0.2s;
+        }
+        .more-link:hover {
+            background: #c44536;
+            color: #fff;
+            border-color: #c44536;
+        }
+
+        /* ───── 响应式 ───── */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3rem 1.2rem 2.8rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+            .intro-text {
+                padding: 1.5rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>关于 <strong>威廉希尔</strong></h1>
+        <p>一处关于站点定位与可信说明的简要记录 —— 并非官方，只作信息梳理与导航之用。</p>
+    </header>
+
+    <!-- 主体 -->
+    <main class="container">
+
+        <!-- 核心介绍 / 叙述段落 -->
+        <div class="intro-text">
+            <p>
+                在中文网络环境中，提到体育与赛事相关信息时，<strong>威廉希尔</strong> 是一个经常出现的名字。
+                这个站点（<a href="https://root-williamhill.com">威廉希尔</a>）并非原始品牌或官方平台，
+                而是围绕该领域信息整理与索引的一处个人站点。建站者希望通过它，让感兴趣的人更容易接触到相关的内容脉络。
+            </p>
+            <p>
+                站内并不提供任何直接交易或下注功能，更不鼓励过度参与。它更像一个资料汇集地，
+                把分散的信息做一次轻量整理。如果你只是对“威廉希尔”这个名字感到好奇，
+                或者想了解其背景与常见说法，这里或许能给你一个相对清晰的起点。
+            </p>
+        </div>
+
+        <!-- 三个场景模块（卡片形式） -->
+        <div class="cards-grid">
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>信息索引</h3>
+                <p>
+                    汇集关于威廉希尔的历史、命名由来、品牌沿革以及常见的用户讨论。
+                    不制造信息冗余，只做必要的梳理与引用，方便读者快速建立认知框架。
+                </p>
+            </div>
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>可信说明</h3>
+                <p>
+                    任何涉及外部链接或第三方内容，均会明确标注来源与用途。本站不虚构背书，
+                    也不做任何结果承诺。读者应当参考多方信源，自行判断信息的适用性。
+                </p>
+            </div>
+            <div class="card">
+                <div class="icon">🧭</div>
+                <h3>导航指向</h3>
+                <p>
+                    站点首页以导航功能为主，帮助首次接触者找到合适的内容入口。
+                    你可以从 <a href="https://root-williamhill.com">威廉希尔</a> 出发，
+                    浏览不同主题下的摘要与链接。
+                </p>
+            </div>
+        </div>
+
+        <!-- 常见说明 / 类似FAQ摘要 -->
+        <section class="faq-short">
+            <h2 class="section-title">一些常见说明</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">这个网站是官方吗？</div>
+                <div class="faq-a">
+                    不是。本站与任何官方实体均无关联，是一个独立的介绍与索引页面。
+                    你可以把它理解为一份围绕“威廉希尔”主题的兴趣笔记。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">内容可靠度如何？</div>
+                <div class="faq-a">
+                    所有公开信息均标注出处，但无法保证第三方链接的长期准确。建议交叉验证，
+                    尤其涉及规则、政策等内容时，应以官方渠道为准。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">页面会更新吗？</div>
+                <div class="faq-a">
+                    不定期。建站者会根据信息变化或新的公开资料做补充，但不会刻意追逐时效。
+                    如果你发现链接失效或明显过时，可以通过站内反馈渠道告知。
+                </div>
+            </div>
+        </section>
+
+        <!-- 一个自然的引导句子，包含链接 -->
+        <p style="margin-top: 2.8rem; color: #3d4055; font-size: 0.95rem; border-top: 1px solid #e4e7ef; padding-top: 2rem;">
+            若想更详细了解站点所围绕的主题，可以从 <a href="https://root-williamhill.com">威廉希尔</a> 开始浏览，
+            那里列出了更多背景资料与分类索引。
+        </p>
+
+    </main>
+
+    <!-- 极简footer -->
+    <footer style="background: #1f2330; color: #9fa6b8; text-align: center; padding: 2rem 1rem; font-size: 0.85rem;">
+        <p>一个关于威廉希尔的轻量导航页 · 内容仅供信息参考</p>
+        <p style="margin-top: 0.4rem; opacity: 0.7;">2025 · 独立站点</p>
+    </footer>
+
+</body>
+</html>
